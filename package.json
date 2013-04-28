@@ -12,10 +12,14 @@
     "url": "git://github.com/meryn/explorer.git"
   },
   "private": false,
-  "dependencies": {},
+  "dependencies": {
+    "async": "~0.2.7"
+  },
   "devDependencies": {
     "coffee-script": "~1.6.2",
-    "mocha": "~1.9.0"
+    "mocha": "~1.9.0",
+    "source-map-support": "~0.1.4",
+    "walk": "~2.2.1"
   },
   "optionalDependencies": {},
   "engines": {

@@ -2,7 +2,7 @@ require("source-map-support").install()
 assert = require "assert"
 walk = require "walk"
 
-explorer = require "../"
+explorer = require ".."
 
 countDirectories = (path, next) ->
   paths = 0
@@ -23,26 +23,26 @@ countFiles = (path, next) ->
 options = {}
   
 describe "countDirectories", ->
-  it "counts directories in ./", (next) ->
-    explorer.countDirectories "./", (err, count) ->
-      countDirectories "./", (err, walkCount) ->
+  it "counts directories in .", (next) ->
+    explorer.countDirectories ".", (err, count) ->
+      countDirectories ".", (err, walkCount) ->
         assert.equal walkCount, count
         next null
-  it "counts directories in ../", (next) ->
-    explorer.countDirectories "../", (err, count) ->
-      countDirectories "../", (err, walkCount) ->
+  it "counts directories in ..", (next) ->
+    explorer.countDirectories "..", (err, count) ->
+      countDirectories "..", (err, walkCount) ->
         assert.equal walkCount, count
         next null
 
 describe "countFiles", ->
-  it "counts files in ./", (next) ->
-    explorer.countFiles "./", (err, count) ->
-      countFiles "./", (err, walkCount) ->
+  it "counts files in .", (next) ->
+    explorer.countFiles ".", (err, count) ->
+      countFiles ".", (err, walkCount) ->
         assert.equal walkCount, count
         next null
-  it "counts files in ../", (next) ->
-    explorer.countDirectories "../", (err, count) ->
-      countDirectories "../", (err, walkCount) ->
+  it "counts files in ..", (next) ->
+    explorer.countDirectories "..", (err, count) ->
+      countDirectories "..", (err, walkCount) ->
         assert.equal walkCount, count
         next null
         
