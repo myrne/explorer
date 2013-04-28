@@ -1,4 +1,6 @@
-module.exports = 
+require "setimmediate"
+
+module.exports =
   explore: require "./explore"
   countFiles: require "./countFiles"
   countDirectories: require "./countDirectories"
