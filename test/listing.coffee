@@ -26,8 +26,6 @@ describe "getDirectories", ->
   it "gets directories in .", (next) ->
     explorer.getDirectories ".", (err, paths) ->
       getDirectories ".", (err, walkPaths) ->
-        console.log walkPaths
-        console.log paths        
         assert.deepEqual walkPaths.sort(), paths.sort()
         next null
   it "gets directories in ..", (next) ->
@@ -40,13 +38,11 @@ describe "getFiles", ->
   it "gets files in .", (next) ->
     explorer.getFiles ".", (err, paths) ->
       getFiles ".", (err, walkPaths) ->
-        console.log walkPaths
-        console.log paths
         assert.deepEqual walkPaths.sort(), paths.sort()
         next null
-  # it "gets files in ..", (next) ->
-  #   explorer.getDirectories "..", (err, paths) ->
-  #     getDirectories "..", (err, walkPaths) ->
-  #       assert.equal walkPaths.sort(), paths.sort()
-  #       next null
+  it "gets files in ..", (next) ->
+    explorer.getDirectories "..", (err, paths) ->
+      getDirectories "..", (err, walkPaths) ->
+        assert.deepEqual walkPaths.sort(), paths.sort()
+        next null
         
