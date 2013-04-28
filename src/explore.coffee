@@ -44,7 +44,11 @@ handleGlobalEntry = (root, name, emitter, options, next) ->
       else  
         type = "directory"
         nextStep = ->
-          explore entryPath, emitter, options, next
+          emitter.emit "enter", root, name
+          explore entryPath, emitter, options, (err) ->
+            emitter.emit "leave", root, name
+            return next err if err
+            return next null
     else 
       if stat.isSymbolicLink()
         type = "symlink"
