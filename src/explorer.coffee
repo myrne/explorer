@@ -6,4 +6,6 @@ module.exports =
   countDirectories: require "./countDirectories"
   getFiles: require "./getFiles"
   getDirectories: require "./getDirectories"
+  getDirectoryTree: require "./getDirectoryTree"
+  getNamespaceObject: require "./getNamespaceObject"
   
