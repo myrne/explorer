@@ -4,6 +4,8 @@ walk = require "walk"
 
 explorer = require ".."
 
+nonExistentDir = "jsgsh;lk"
+
 getDirectories = (path, next) ->
   paths = []
   walker = walk.walk path
@@ -28,6 +30,10 @@ describe "getDirectories", ->
       getDirectories ".", (err, walkPaths) ->
         assert.deepEqual walkPaths.sort(), paths.sort()
         next null
+  it "fails when given non-existent dir", (next) ->
+    explorer.getDirectories nonExistentDir, (err, paths) ->
+      assert.equal err.toString(), "Error: ENOENT, readdir '#{nonExistentDir}'"
+      return next null
 
 describe "getFiles", ->
   it "gets files in .", (next) ->
@@ -35,4 +41,7 @@ describe "getFiles", ->
       getFiles ".", (err, walkPaths) ->
         assert.deepEqual walkPaths.sort(), paths.sort()
         next null
-        
+  it "fails when given non-existent dir", (next) ->
+    explorer.getFiles nonExistentDir, (err, paths) ->
+      assert.equal err.toString(), "Error: ENOENT, readdir '#{nonExistentDir}'"
+      return next null
