@@ -28,21 +28,11 @@ describe "countDirectories", ->
       countDirectories ".", (err, walkCount) ->
         assert.equal walkCount, count
         next null
-  it "counts directories in ..", (next) ->
-    explorer.countDirectories "..", (err, count) ->
-      countDirectories "..", (err, walkCount) ->
-        assert.equal walkCount, count
-        next null
 
 describe "countFiles", ->
   it "counts files in .", (next) ->
     explorer.countFiles ".", (err, count) ->
       countFiles ".", (err, walkCount) ->
-        assert.equal walkCount, count
-        next null
-  it "counts files in ..", (next) ->
-    explorer.countDirectories "..", (err, count) ->
-      countDirectories "..", (err, walkCount) ->
         assert.equal walkCount, count
         next null
         

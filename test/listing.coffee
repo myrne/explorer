@@ -28,21 +28,11 @@ describe "getDirectories", ->
       getDirectories ".", (err, walkPaths) ->
         assert.deepEqual walkPaths.sort(), paths.sort()
         next null
-  it "gets directories in ..", (next) ->
-    explorer.getDirectories "..", (err, paths) ->
-      getDirectories "..", (err, walkPaths) ->
-        assert.deepEqual walkPaths.sort(), paths.sort()
-        next null
 
 describe "getFiles", ->
   it "gets files in .", (next) ->
     explorer.getFiles ".", (err, paths) ->
       getFiles ".", (err, walkPaths) ->
-        assert.deepEqual walkPaths.sort(), paths.sort()
-        next null
-  it "gets files in ..", (next) ->
-    explorer.getDirectories "..", (err, paths) ->
-      getDirectories "..", (err, walkPaths) ->
         assert.deepEqual walkPaths.sort(), paths.sort()
         next null
         
