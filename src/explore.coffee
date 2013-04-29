@@ -11,7 +11,6 @@ module.exports = (root, options = {}) ->
     emitter.emit "start"
     explore root, emitter, options, (err) ->
       emitter.emit "end", err
-      emitter.emit "error", err if err
       emitter.emit "succces", err unless err
   emitter
   
