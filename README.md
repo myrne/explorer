@@ -12,18 +12,39 @@ Explore directories in various ways.
 * `file` `(root, entryName, stat)`
 * `symlink` `(root, entryName, stat)`
 * `start`
-* `end`
-* `error` `(error)`
+* `end` (error)
 
-The explore function starts doing it work on the next tick, so you are able to bind event listeners.
+`explore` starts doing it work on the next tick, so you are able to bind event listeners.
+
+`explore` function currently stops processing after an error occurs. This error will be made available as the first argument to the `end` event listener. If exploration finishes without errors, the `error` argument will be `null`.
+
+`explore` currently does not follow symlinks.
 
 ### explorer.getFiles  (root[, options], cb)
 
+`cb` gets called with `(err, filePaths).
+
 ### explorer.getDirectories (root[, options], cb)
+
+`cb` gets called with `(err, directoryPaths)`.
 
 ### explorer.countFiles (root[, options], cb)
 
+`cb` gets called with `(err, numFiles)`.
+
 ### explorer.countDirectories  (root[, options], cb)
+
+`cb` gets called with `(err, numDirectories)`.
+
+### explorer.getDirectoryTree  (root[, options], cb)
+
+`cb` gets called with `(err, tree)`. `tree` is the root node of a tree structure where each node has a `label` (string) and `nodes` (array) property. This can be given to [archy](https://npmjs.org/package/archy) as is.
+
+### explorer.getNamespaceObject  (root[, options], cb)
+
+`cb` gets called with `(err, nsObject)`. `nsObject` is the root node of a namespace structure where each node has properties named after the name subdirectories it contains, the value being another directory node.
+
+This is useful when you use a hierarchical global namespace for your application componentns and the folder structure of your application closely matches the namespace, you use. You may want to recursively change the property names with a tool like [tower-strcase](https://npmjs.org/package/tower-strcase) or [change-case](https://npmjs.org/package/change-case).
 
 ## Options
 
