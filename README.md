@@ -2,27 +2,31 @@
 
 Explore directories in various ways.
 
-## Functions
+## Main function: explorer.explore (root[, options])
 
-### explorer.explore (root[, options])
+`explore` returns an [EventEmitter](http://nodejs.org/api/events.html). It recursively goes through the directories under `root`, and while doing so, emits various events.
 
-`explore` returns an [EventEmitter](http://nodejs.org/api/events.html). It recursively goes through the directories under `root`, and while doing so, emits the following events:
+### Events emitted
 
 * `directory` `(root, entryName, stat)`
 * `file` `(root, entryName, stat)`
 * `symlink` `(root, entryName, stat)`
+* `enter` `(root, entryName)` - when it enters a subdirectory
+* `leave` `(root, entryName)` - when it has left a subdirectory
 * `start`
 * `end` (error)
 
-`explore` starts doing it work on the next tick, so you are able to bind event listeners.
+### Notes
 
-`explore` function currently stops processing after an error occurs. This error will be made available as the first argument to the `end` event listener. If exploration finishes without errors, the `error` argument will be `null`.
+* It starts doing it work on the next tick, so you are able to bind event listeners.
+* It stops exploration after an error occurs. This error will be made available as the first argument to the `end` event listener. If exploration finishes without errors, the `error` argument will be `null`.
+* It currently does not follow symlinks.
 
-`explore` currently does not follow symlinks.
+## Convenience functions
 
 ### explorer.getFiles  (root[, options], cb)
 
-`cb` gets called with `(err, filePaths).
+`cb` gets called with `(err, filePaths)`.
 
 ### explorer.getDirectories (root[, options], cb)
 
@@ -44,7 +48,7 @@ Explore directories in various ways.
 
 `cb` gets called with `(err, nsObject)`. `nsObject` is the root node of a namespace structure where each node has properties named after the name subdirectories it contains, the value being another directory node.
 
-This is useful when you use a hierarchical global namespace for your application componentns and the folder structure of your application closely matches the namespace, you use. You may want to recursively change the property names with a tool like [tower-strcase](https://npmjs.org/package/tower-strcase) or [change-case](https://npmjs.org/package/change-case).
+This is useful when you use a hierarchical global namespace for your application components and the folder structure of your application closely matches the namespace you use. You may want to recursively change the property names with a tool like [tower-strcase](https://npmjs.org/package/tower-strcase) or [change-case](https://npmjs.org/package/change-case).
 
 ## Options
 
