@@ -2,7 +2,7 @@
   "name": "explorer",
   "description": "Explore directories in various ways.",
   "keywords": [],
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Meryn Stol <merynstol@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/meryn/explorer",
