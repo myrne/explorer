@@ -4,7 +4,9 @@ Explore directories in various ways.
 
 ## Main function: explorer.explore (root[, options])
 
-`explore` returns an [EventEmitter](http://nodejs.org/api/events.html). It recursively goes through the directories under `root`, and while doing so, emits various events.
+`explore` returns an [`EventEmitter`](http://nodejs.org/api/events.html).
+
+It recursively goes through the directories under `root`, and while doing so, emits various events.
 
 ### Events emitted
 
@@ -14,7 +16,7 @@ Explore directories in various ways.
 * `enter` `(root, entryName)` - when it enters a subdirectory
 * `leave` `(root, entryName)` - when it has left a subdirectory
 * `start`
-* `end` (error)
+* `end` `(error)`
 
 ### Notes
 
