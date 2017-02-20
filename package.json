@@ -13,13 +13,13 @@
   },
   "private": false,
   "dependencies": {
-    "async": "~0.2.7",
+    "async": "~2.1.5",
     "setimmediate": "~1.0.1"
   },
   "devDependencies": {
-    "coffee-script": "~1.6.2",
-    "mocha": "~1.9.0",
-    "source-map-support": "~0.1.4",
+    "coffee-script": "~1.12.4",
+    "mocha": "~3.2.0",
+    "source-map-support": "~0.4.11",
     "walk-extra": "0.0.1"
   },
   "optionalDependencies": {},

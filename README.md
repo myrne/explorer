@@ -1,5 +1,7 @@
 # explorer [![Build Status](https://travis-ci.org/meryn/explorer.png?branch=master)](https://travis-ci.org/meryn/explorer) [![Dependency Status](https://david-dm.org/meryn/explorer.png)](https://david-dm.org/meryn/explorer)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/braveg1rl/explorer.svg)](https://greenkeeper.io/)
+
 Explore directories in various ways.
 
 ## Main function: explorer.explore (root[, options])
